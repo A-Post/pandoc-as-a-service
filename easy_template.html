@@ -1,48 +1,15 @@
 <!doctype html>
 <html $if(lang)$ lang="$lang$" $endif$>
 <head>
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!--[if lt IE 9]>
-                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
-
-    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css" />
-
-    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
-
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
-    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
-    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
-
-    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
-  
-    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-        
-  
-    <!-- <script src="script.js"></script> -->
-  
-    <!-- <script src="jquery.sticky-kit.js "></script> -->
-    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
-    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
-    <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
-
-    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script>
-  
-    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
+    <link rel="stylesheet" type="text/css" href="easy_template/css/pandoc.css" /> 
+    <link rel="stylesheet" type="text/css" href="easy_template/css/template.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <!--
+    <script src="easy_template/js/script.js"></script>
+    -->  
     <meta name="generator" content="pandoc" />
 $for(author-meta)$
   <meta name="author" content="$author-meta$" />
@@ -69,31 +36,41 @@ $endif$
 $for(header-includes)$
   $header-includes$
 $endfor$
+ <style type = "text/css">
+    p { font-family: 'Calibri'; }
+</style>
 </head>
 <body>
-
-    
-  $if(title)$
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <div class="container">
-        <span class="doc-title">$title$</span>
+        <img src="easy_template/css/Logo_92-02.svg" alt="SVG mit img Tag laden" width="92px" height="92px" style="margin: 0 0 0 0;">
         <ul class="nav pull-right doc-info">
-          $for(author)$
-          <li><p class="navbar-text">$author$</p></li>
-          $endfor$
-          $if(date)$
-          <li><p class="navbar-text">$date$</p></li>
-          $endif$
+		$if(category)$
+			<li><h1 class="navbar-text">$category$</h1></li>	
+		$endif$
+			
+        $if(title)$
+        	<li><h2 class="navbar-text">$title$</h2></li>
+		$endif$
+		$for(subject)$
+			<li><h3 class="navbar-text">$subject$</h3></li>
+		$endfor$
+        $if(date)$
+        	<li class="navbar-text-float">$version$</li>
+		$endif$
+		$if(version)$
+			<li class="navbar-text-float">$date$</li>
+        $endif$
         </ul>
       </div>
     </div>
   </div>
-  $endif$
+  <div class="container"><hr /></div>
   <div class="container">
     <div class="row">
       $if(toc)$
-      <div id="$idprefix$TOC" class="span3">
+      <div id="$idprefix$TOC" class="span3" style="font-family: innogybold !important;">
         <div class="well toc">
 
         $toc$
@@ -112,17 +89,5 @@ $endfor$
       </div>
     </div>
   </div>
-$if(analytics)$                    
-            <script>
-                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', '$analytics$', 'auto');
-  ga('send', 'pageview');
-$endif$
-  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
-
 </body>
 </html>
